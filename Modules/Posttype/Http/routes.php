@@ -10,3 +10,7 @@ Route::group(['middleware' => 'usersession', 'prefix' => 'admin/posttype', 'name
     Route::post('/delete', 'PosttypeController@delete');
     Route::post('/update', 'PosttypeController@update');
 });
+Route::group(['middleware' => 'web', 'prefix' => 'category/{link?}', 'namespace' => 'Modules\Posttype\Http\Controllers'], function()
+{
+    Route::get('/', 'PosttypeControllerFrontEnd@index');
+});

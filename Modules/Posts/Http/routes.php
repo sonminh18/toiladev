@@ -11,3 +11,7 @@ Route::group(['middleware' => 'usersession', 'prefix' => 'admin/posts', 'namespa
     Route::post('/updatepost', 'PostsController@updatepost');
     Route::post('/deletepost', 'PostsController@deletepost');
 });
+Route::group(['middleware' => 'web', 'prefix' => '{post?}', 'namespace' => 'Modules\Posts\Http\Controllers'], function()
+{
+    Route::get('/', 'PostsControllerFrontEnd@index');
+});

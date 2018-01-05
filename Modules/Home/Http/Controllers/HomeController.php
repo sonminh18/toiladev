@@ -27,8 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         $NewestPost=$this->BaiViet->GetNewest();
-//        echo json_encode($NewestPost);
-        return view('home::index',compact(['NewestPost']));
+        $Newest10Post=$this->BaiViet->Get10Newest()->paginate(4);
+        $HighSeen=$this->BaiViet->GetHighSeen();
+//        echo json_encode($Newest10Post);
+        return view('home::index',compact(['NewestPost','Newest10Post','HighSeen']));
     }
 
     /**
