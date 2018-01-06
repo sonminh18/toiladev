@@ -15,4 +15,10 @@ class thuvienanh extends Model
         });
         return $this->orderBy('created_at', 'desc')->paginate($pageSize);
     }
+    public function GetImage($id)
+    {
+        return $this
+            ->where('iMa','=',$id)
+            ->first();
+    }
 }
